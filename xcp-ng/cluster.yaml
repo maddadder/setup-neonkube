@@ -1,0 +1,61 @@
+name: xcp-ng-beaky
+datacenter: xcp-ng-dc
+timeSources:
+- pool.ntp.org
+kubernetes:
+  allowPodsOnControlPlane: true
+hosting:
+  environment: xenserver
+  vm:
+    hostUsername: root
+    hostPassword: YOUR_XCP-NG_PASSWORD
+    hosts:
+    - name: xcp-ng-01
+      address: 192.168.1.151
+    - name: xcp-ng-02
+      address: 192.168.1.152
+    - name: xcp-ng-03
+      address: 192.168.1.153
+    - name: xcp-ng-04
+      address: 192.168.1.154
+  xenServer:
+    snapshot: true
+network:
+  premiseSubnet: 192.168.1.0/24
+  gateway: 192.168.1.1
+  nameservers:
+    - 8.8.8.8
+    - 8.8.4.4
+nodes:
+  master-0:
+    role: control-plane
+    address: 192.168.1.161
+    vm:
+      host: xcp-ng-01
+      cores: 6
+      memory: 28GiB
+      osDisk: 320GiB
+  worker-0:
+    role: worker
+    address: 192.168.1.162
+    vm:
+      host: xcp-ng-02
+      cores: 6
+      memory: 28GiB
+      osDisk: 320GiB
+  worker-1:
+    role: worker
+    address: 192.168.1.163
+    vm:
+      host: xcp-ng-03
+      cores: 6
+      memory: 28GiB
+      osDisk: 320GiB
+  worker-2:
+    role: worker
+    address: 192.168.1.164
+    vm:
+      host: xcp-ng-04
+      cores: 6
+      memory: 28GiB
+      osDisk: 320GiB

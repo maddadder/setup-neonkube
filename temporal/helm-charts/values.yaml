@@ -1,0 +1,12 @@
+server:
+  image:
+    repository: docker.io/temporalio/server
+admintools:
+  image:
+    repository: docker.io/temporalio/admin-tools
+web:
+  image:
+    repository: docker.io/temporalio/ui
+cassandra:
+  image:
+    repo: docker.io/cassandra
