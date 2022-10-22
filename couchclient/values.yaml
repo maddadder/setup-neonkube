@@ -1,0 +1,4 @@
+imagePullSecrets:
+  - name: leenet-registry
+image:
+  repository: neon-registry.1fcc-fb9d-adea-fda9.neoncluster.io/leenet/couchclient

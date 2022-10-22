@@ -1,0 +1,37 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: leenet-gateway-couchclient.leenet.link
+spec:
+  hosts:
+  - "couchclient.leenet.link"
+  gateways:
+  - neon-ingress/leenet-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+      - destination:
+          host: leenet-couchclient.leenet.svc.cluster.local
+          port:
+            number: 5001
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: leenet-gateway-plhhoa-couchclient.leenet.link
+spec:
+  hosts:
+  - "plhhoa-couchclient.leenet.link"
+  gateways:
+  - neon-ingress/leenet-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+      - destination:
+          host: plhhoa-couchclient.leenet.svc.cluster.local
+          port:
+            number: 5001

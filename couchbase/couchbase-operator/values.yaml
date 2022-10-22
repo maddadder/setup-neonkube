@@ -1,0 +1,15 @@
+install:
+  couchbaseOperator: true
+  adminissionController: true
+  couchbaseCluster: false
+  syncGateway: false
+
+couchbaseOperator:
+  name: operator
+  imagePullPolicy: Always
+  image:
+    repository: docker.io/couchbase/operator
+
+admissionController:
+  image:
+    repository: docker.io/couchbase/admission-controller
