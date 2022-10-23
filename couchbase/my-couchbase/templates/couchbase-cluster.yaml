@@ -64,3 +64,7 @@ spec:
       resources: 
         requests:
           storage: 10Gi
+  securityContext:
+    runAsUser: 1000
+    runAsNonRoot: true
+    fsGroup: 1000

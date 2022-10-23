@@ -1,2 +1,3 @@
 xcp-ng/cluster-beaky.yaml
 ingress/setup.md
+couchbase/couchbase-secret.yaml
