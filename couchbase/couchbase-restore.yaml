@@ -3,7 +3,7 @@ kind: CouchbaseBackupRestore
 metadata:
   name: my-restore
 spec:
-  repo: my-couchbase-2022-10-23T01_48_38
+  repo: my-couchbase-2022-10-23T04_56_39
   backup: my-backup
   start:
     str: latest
