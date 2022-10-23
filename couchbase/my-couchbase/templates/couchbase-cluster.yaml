@@ -60,7 +60,7 @@ spec:
   - metadata:
       name: couchbase
     spec:
-      storageClassName: default
+      storageClassName: openebs-jiva-couchbase
       resources: 
         requests:
           storage: 10Gi
