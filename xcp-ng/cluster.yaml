@@ -3,7 +3,7 @@ datacenter: xcp-ng-dc
 timeSources:
 - pool.ntp.org
 kubernetes:
-  allowPodsOnControlPlane: true
+  allowPodsOnControlPlane: false
 hosting:
   environment: xenserver
   vm:
@@ -11,15 +11,21 @@ hosting:
     hostPassword: YOUR_XCP-NG_PASSWORD
     hosts:
     - name: xcp-ng-01
-      address: 192.168.1.151
+      address: 192.168.1.171
     - name: xcp-ng-02
-      address: 192.168.1.152
+      address: 192.168.1.172
     - name: xcp-ng-03
-      address: 192.168.1.153
+      address: 192.168.1.173
     - name: xcp-ng-04
-      address: 192.168.1.154
+      address: 192.168.1.174
   xenServer:
     snapshot: true
+storage:
+  minio:
+    volumesPerNode: 4
+    volumeSize: 16Gi
+  openEbs:
+    engine: cstor
 network:
   premiseSubnet: 192.168.1.0/24
   gateway: 192.168.1.1
@@ -29,33 +35,46 @@ network:
 nodes:
   master-0:
     role: control-plane
-    address: 192.168.1.161
+    address: 192.168.1.181
+    openEbsStorage: false
     vm:
       host: xcp-ng-01
       cores: 6
       memory: 28GiB
-      osDisk: 320GiB
+      osDisk: 360GiB
   worker-0:
     role: worker
-    address: 192.168.1.162
+    address: 192.168.1.182
+    openEbsStorage: true
+    labels:
+      minio: true
     vm:
       host: xcp-ng-02
       cores: 6
       memory: 28GiB
-      osDisk: 320GiB
+      osDisk: 180GiB
+      openEbsDisk: 180GiB
   worker-1:
     role: worker
-    address: 192.168.1.163
+    address: 192.168.1.183
+    openEbsStorage: true
+    labels:
+      minio: true
     vm:
       host: xcp-ng-03
       cores: 6
       memory: 28GiB
-      osDisk: 320GiB
+      osDisk: 180GiB
+      openEbsDisk: 180GiB
   worker-2:
     role: worker
-    address: 192.168.1.164
+    address: 192.168.1.184
+    openEbsStorage: true
+    labels:
+      minio: true
     vm:
       host: xcp-ng-04
       cores: 6
       memory: 28GiB
-      osDisk: 320GiB
+      osDisk: 180GiB
+      openEbsDisk: 180GiB
