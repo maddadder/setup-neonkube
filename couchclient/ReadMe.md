@@ -19,8 +19,8 @@ kubectl apply -f C:\git\setup-neonkube\couchclient\virtual-services.yaml --names
 ```
 cd C:\git\couchclient\src\couchclient
 docker-compose build
-docker tag 192.168.1.151:32000/couchclient:1.0.129 neon-registry.cd16-795a-ca6d-1c62.neoncluster.io/leenet/couchclient:1.0.129
-docker push neon-registry.cd16-795a-ca6d-1c62.neoncluster.io/leenet/couchclient:1.0.129
+docker tag 192.168.1.151:32000/couchclient:1.0.129 neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/leenet/couchclient:1.0.129
+docker push neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/leenet/couchclient:1.0.129
 
 cd C:\Users\alice\.neonkube\tools
 helm install plhhoa-couchclient -f C:\git\couchclient\couchclient/values.yaml -f C:\git\couchclient\couchclient/values.plhhoa.yaml -f C:\git\setup-neonkube\couchclient\values.yaml C:\git\couchclient\couchclient --namespace leenet
