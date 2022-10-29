@@ -10,7 +10,7 @@
 10. Install WinSCP: https://winscp.net/eng/index.php
 11. Run: winget install --id Microsoft.Powershell --source winget
 12. open cmd as admin and run c:\git\neonSDK\buildenv.cmd
-13. `clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 24fb4a66ede68003d95221061a34361b95ced72e` as a mechanism to version this doc
+13. `clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 1fff9ecce1ce1bd5025d9c6b5397456a1e4d6222` as a mechanism to version this doc
 14. Open neonKUBE in Visual Studio
 15. add a new package source called 'neon' with https://nuget-dev.neoncloud.io/v3/index.json in Tools/options/Nuget Package Manager/Package Sources
 16. run as admin: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
@@ -19,7 +19,7 @@
 18. Click open debug launch profile
 20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml`
 ```
-Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images. Also backup/delete C:\Users\alice\.kube folder
+Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
 ```
 21. Press play in the debugger 
 ```
@@ -28,11 +28,11 @@ You can find the download once complete in .neonkube\node-images
 Setup will create a 32gb virtual disk on each xcp-ng-0X host called neon-ubuntu-22.04 0 that will get resized during setup. 
 Make sure to allocate at least ~40Gb of space below the amount of available space you actually have on your disk so that the host os can have room to install neon charts, the OS image media (ubuntu), etc. For example, for a 512 Gb Physical SSD, only allocate a 360Gb disk.
 
-If you have to restart 'cluster prepare' then backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images. This will allow you to start from scratch without having to re-download the large file neonkube-0.8.3-alpha.xenserver.amd64.xva every time. Also backup/delete C:\Users\alice\.kube folder, and delete any virtual machines that were created
+If you have to restart 'cluster prepare' then backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Keeping the .\.neonkube\node-images folder will allow you to start from scratch without having to re-download the large file neonkube-0.8.3-alpha.xenserver.amd64.xva every time. Also backup/delete C:\Users\alice\.kube folder, and delete any virtual machines that were created
 ```
 22. Change the debug launch profile to: `cluster setup root@xcp-ng-beaky` where `xcp-ng-beaky` is the name of your cluster defined by line one of cluster.yaml
 23. Press play in the debugger
-24. Create a sample user: https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md and port forward:
+24. Once setup is complete you need to find the Url and password. The quick way is to check the log in `C:\Users\alice\.neonkube\log\master-0.log`. You can search for root and look for the password. For the Url you can search for `.neoncluster.io` and then navigate to neon-k8s.GUID.neoncluster.io in your browser. Another way is to log in to the dashboard by port fowarding. If you don't have the log file, here are the steps to create a sample user https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md and port forward:
 ```
 cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\xcp-ng\serviceaccount.yaml
