@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+
+  temporal-adventure-bot:
+    environment:
+      TEMPORAL_CLI_ADDRESS: temporaltest-frontend-headless.temporal.svc.cluster.local:7233
