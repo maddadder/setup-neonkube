@@ -44,24 +44,25 @@ tar -czf my-couchbase-2022-10-23T03_00_03.tgz my-couchbase-2022-10-23T03_00_03
 ```
 kubectl cp backup-exec-fehjt:data/backups/my-couchbase-2022-10-23T03_00_03.tgz .\my-backup.tgz --namespace couchbase
 ```
-6. head over to your destination and start the backup-exec pod
+6. head over to your destination and start the backup-exec pod.
 ```
 cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\couchbase\couchbase-backup-test.yaml --namespace couchbase
 ```
-7. Copy tgz file from local filesystem to destination pod via `kubectl cp .\local-path\filename.tgz pod-name-shown-in-get-pods:path/to/filename.tgz` using relative paths
+7. Trigger a backup by navigating to cron jobs, click the vertical ..., and then click Trigger. This will create the `/data/backups` folder to provision the next step.
+8. Copy tgz file from local filesystem to destination pod via `kubectl cp .\local-path\filename.tgz pod-name-shown-in-get-pods:path/to/filename.tgz` using relative paths
 ```
-kubectl cp .\my-backup.tgz backup-exec-whw4s:data/backups/my-backup.tgz --namespace couchbase
+kubectl cp .\my-backup.tgz backup-exec-6fql9:data/backups/my-backup.tgz --namespace couchbase
 ```
-8. exec into destination pod
+9. exec into destination pod
 ```
 cd data/backups
 tar -xvzf my-backup.tgz
 ```
-9. drop the existing collections you have in the bucket (except the default)
-9. set `C:\git\setup-neonkube\couchbase\couchbase-restore.yaml` with the correct repo matching the folder, e.g. `my-couchbase-2022-10-23T04_56_39`
-10. Flush the couchbase bucket via couchbase => buckets => bucket => edit => advanced bucket settings => flush enable => save changes => flush
-10. Apply the restore resource file
+10. drop the existing collections you have in the bucket (except the default)
+11. set `C:\git\setup-neonkube\couchbase\couchbase-restore.yaml` with the correct repo matching the folder, e.g. `my-couchbase-2022-10-23T04_56_39`
+12. Flush the couchbase bucket via couchbase => buckets => bucket => edit => advanced bucket settings => flush enable => save changes => flush
+13. Apply the restore resource file
 ```
 cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\couchbase\couchbase-restore.yaml --namespace couchbase

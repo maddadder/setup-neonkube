@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: leenet-gateway-couchbase
+spec:
+  gateways:
+    - neon-ingress/leenet-gateway
+  hosts:
+    - couchbase.leenet.link
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: my-couchbase.couchbase.svc.cluster.local
+            port:
+              number: 8091

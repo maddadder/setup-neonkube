@@ -6,16 +6,11 @@ git clone https://github.com/maddadder/couchclient.git
 2. In the `C:\git3\couchclient\src\couchclient`, copy `appsettings.example.json` to `appsettings.leenet.json`
 3. In the `C:\git3\couchclient\src\couchclient`, copy `appsettings.example.json` to `appsettings.plhhoa.json`
 4. Apply the correct secrets based on the example in step 2 and 3
-5. Create the `leenet` namespace
-```
-cd C:\Users\alice\.neonkube\tools
-kubectl apply -f C:\git\setup-neonkube\couchclient\namespace.yaml
-```
-6. Create the virtual service
+5. Create the virtual service
 ```
 kubectl apply -f C:\git\setup-neonkube\couchclient\virtual-services.yaml --namespace neon-ingress
 ```
-7. deploy plhhoa and leenet image, charts 
+6. deploy plhhoa and leenet image, charts 
 ```
 cd C:\git\couchclient\src\couchclient
 docker-compose build
