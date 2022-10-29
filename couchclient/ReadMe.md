@@ -22,3 +22,4 @@ helm install plhhoa-couchclient -f C:\git\couchclient\couchclient/values.yaml -f
 
 helm install leenet-couchclient -f C:\git\couchclient\couchclient/values.yaml -f C:\git\couchclient\couchclient/values.leenet.yaml -f C:\git\setup-neonkube\couchclient\values.yaml C:\git\couchclient\couchclient --namespace leenet
 ```
+7. Navigate to https://couchclient.leenet.link and https://plhhoa-couchclient.leenet.link.

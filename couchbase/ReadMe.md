@@ -29,7 +29,7 @@ kubectl apply -f C:\git\setup-neonkube\couchbase\couchbase-restore.yaml  --names
 ```
 
 ### restore from backup outside of cluster
-1. start the backup-exec pod from the server you with to backup from (source)
+1. NOTE: Do this after the indexes are created otherwise you have to delete the indexes after the restore operation.  Start the backup-exec pod from the server you with to backup from (source)
 ```
 cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\couchbase\couchbase-backup-test.yaml --namespace couchbase
@@ -67,3 +67,4 @@ tar -xvzf my-backup.tgz
 cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\couchbase\couchbase-restore.yaml --namespace couchbase
 ```
+14. If the indexes are brand new, you have to delete the indexes and let the couchclient create the indexes once deployed.
