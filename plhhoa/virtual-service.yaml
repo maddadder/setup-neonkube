@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: leenet-gateway-plhhoa.link
+spec:
+  hosts:
+  - "plhhoa.link"
+  gateways:
+  - neon-ingress/leenet-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+      - destination:
+          host: plhhoa.leenet.svc.cluster.local
+          port:
+            number: 80

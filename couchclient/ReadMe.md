@@ -8,6 +8,7 @@ git clone https://github.com/maddadder/couchclient.git
 4. Apply the correct secrets based on the example in step 2 and 3
 5. Create the virtual service
 ```
+cd C:\Users\alice\.neonkube\tools
 kubectl apply -f C:\git\setup-neonkube\couchclient\virtual-services.yaml --namespace neon-ingress
 ```
 6. deploy plhhoa and leenet image, charts 
