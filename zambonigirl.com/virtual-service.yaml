@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: gateway-zambonigirl.com
+spec:
+  hosts:
+  - "zambonigirl.com"
+  - "www.zambonigirl.com"
+  gateways:
+  - neon-ingress/leenet-gateway
+  http:
+  - match:
+    - uri:
+        prefix: "/" #or prefix
+    route:
+      - destination:
+          host: zambonigirl.leenet.svc.cluster.local
+          port:
+            number: 80

@@ -1,0 +1,4 @@
+imagePullSecrets:
+  - name: leenet-registry
+image:
+  repository: neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/leenet/paintedravendesign
