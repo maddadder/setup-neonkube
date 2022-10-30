@@ -1,0 +1,7 @@
+imagePullSecrets:
+  - name: leenet-registry
+image:
+  repository: neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/leenet/nextjs-app
+couchbaseEndpoint: my-couchbase.couchbase.svc.cluster.local
+temporalAddress: temporaltest-frontend-headless.temporal.svc.cluster.local
+couchbasePassword: SET_THIS_IN_deploy.example.cmd

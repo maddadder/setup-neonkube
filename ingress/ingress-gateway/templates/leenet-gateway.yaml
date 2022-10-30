@@ -8,6 +8,14 @@ spec:
     istio: ingressgateway # use istio default controller
   servers:
   - hosts:
+    - "*"
+    port:
+      number: 80
+      name: leenet-link-http
+      protocol: HTTP
+    tls:
+      httpsRedirect: true
+  - hosts:
     - "leenet.link"
     - "*.leenet.link"
     port:

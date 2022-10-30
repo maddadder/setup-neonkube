@@ -3,3 +3,4 @@ ingress/setup.md
 couchbase/couchbase-secret.yaml
 temporal-adventure-bot/deploy-discord.cmd
 temporal-adventure-bot/deploy.cmd
+nextjs-app/deploy.cmd

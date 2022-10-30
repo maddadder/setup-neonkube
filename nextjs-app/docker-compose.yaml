@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+
+  nextjs-app:
+    environment:
+      TEMPORAL_CLI_ADDRESS: temporaltest-frontend-headless.temporal.svc.cluster.local:7233
