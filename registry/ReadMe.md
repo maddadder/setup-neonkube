@@ -11,7 +11,7 @@ echo neon-registry.18e7-091a-7bb4-d81e.neoncluster.io | docker-credential-deskto
 7. Create the `leenet` namespace
 ```
 cd C:\Users\alice\.neonkube\tools
-kubectl apply -f C:\git\setup-neonkube\couchclient\namespace.yaml
+kubectl apply -f C:\git\setup-neonkube\registry\namespace.yaml
 ```
 8. create image pull secrets https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
 ```

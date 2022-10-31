@@ -11,6 +11,13 @@
 192.168.1.181	zambonigirl.com
 ```
 2. Follow instructions in xcp-ng
+```
+https://neon-k8s.18e7-091a-7bb4-d81e.neoncluster.io/
+https://neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/
+https://neon-grafana.18e7-091a-7bb4-d81e.neoncluster.io/
+To fix grafana sso, go to: 
+https://neon-grafana.18e7-091a-7bb4-d81e.neoncluster.io/login/generic_oauth
+```
 3. Follow instructions in ingress
 4. Follow instructions in temporal
 5. Follow instructions in registry
