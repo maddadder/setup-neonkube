@@ -49,6 +49,6 @@ kubectl port-forward --namespace neon-system service/kubernetes-dashboard 80
 ### Rebooting
 1. There is some work to do after a reboot that worked for me. In one of the operators I got the following error: `unable to retrieve the complete list of server APIs` To fix I did the following:
 2. `kubectl get apiservice`
-3. In the results, look for rows where AVAILABLE is False. In my case it was `v1alpha1.acme.neoncloud.io`. Find the associated pods and restart it. In my case the pods were neon-acme in the neon-ingress namespace.
-4. If all else fails you can try reinstalling the chart associated with the API that is unavailable found in the prior step. You can find the apposing helm chart install command in the logs stored at `C:\Users\alice\.neonkube\log\master-0.log`.
-5. Uninstall that chart and reinstall it using the data found in the log
+3. In the results, look for rows where AVAILABLE is False. In my case it was `v1alpha1.acme.neoncloud.io`. Find the associated pods and restart it. In my case, restart the `neon-acme`, `istio-ingressgateway`, `neon-sso-session-proxy`, `neon-sso-oauth2-proxy` pods.
+4. If all else fails you can try reinstalling the chart associated with the API that is unavailable found in the prior step. You can find the apposing helm chart install command in the logs stored at `C:\Users\alice\.neonkube\log\master-0.log`. Uninstall that chart and reinstall it using the data found in the log
+
