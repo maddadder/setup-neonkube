@@ -1,12 +1,32 @@
 server:
   image:
     repository: docker.io/temporalio/server
+  nodeSelector:
+    kubernetes.io/hostname: worker-1
+
+  frontend:
+    nodeSelector:
+      kubernetes.io/hostname: worker-1
+  history:
+    nodeSelector:
+      kubernetes.io/hostname: worker-1
+  matching:
+    nodeSelector:
+      kubernetes.io/hostname: worker-1
+  worker:
+    nodeSelector:
+      kubernetes.io/hostname: worker-1
+
 admintools:
   image:
     repository: docker.io/temporalio/admin-tools
+  nodeSelector:
+    kubernetes.io/hostname: worker-1
 web:
   image:
     repository: docker.io/temporalio/ui
+  nodeSelector:
+    kubernetes.io/hostname: worker-1
 cassandra:
   image:
     repo: docker.io/cassandra

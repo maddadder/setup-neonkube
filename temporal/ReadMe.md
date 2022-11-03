@@ -7,3 +7,4 @@
 7. `kubectl apply -f C:\git\setup-neonkube\temporal\virtual-service.yaml`
 8. Navigate to https://temporal.leenet.link/ to test web
 9. exec into temporal admin tools and run: `tctl namespace register default`
+10. To uninstall `helm uninstall temporaltest --namespace temporal`
