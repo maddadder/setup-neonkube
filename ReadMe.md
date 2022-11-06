@@ -14,6 +14,13 @@
 ```
 https://neon-k8s.18e7-091a-7bb4-d81e.neoncluster.io/
 https://neon-registry.18e7-091a-7bb4-d81e.neoncluster.io/
+https://neon-minio.18e7-091a-7bb4-d81e.neoncluster.io/
+```
+1. Log into minio, Metrics => loki => Manage => Lifecycle => click + on Add lifecycle rule
+2. After 3 days, check Expire, click save
+3. This will expire logs after n days. My logs filled up in 2 days so feel free to choose 2 days.
+4. If your logs fill up before n days you can just go in and delete the index and %cluster-name% folders. The index and %cluster-name% folders will get recreated
+```
 https://neon-grafana.18e7-091a-7bb4-d81e.neoncluster.io/
 To fix grafana sso, go to: 
 https://neon-grafana.18e7-091a-7bb4-d81e.neoncluster.io/login/generic_oauth
