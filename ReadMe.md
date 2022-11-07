@@ -38,3 +38,4 @@ https://neon-grafana.18e7-091a-7bb4-d81e.neoncluster.io/login/generic_oauth
 13. Follow instructions in zambonigirl.com
 14. Follow instructions in marketcap
 15. Follow instructions in ddns-route53
+16. Follow instructions in movie-recommender
