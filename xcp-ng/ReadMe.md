@@ -45,6 +45,8 @@ kubectl port-forward --namespace neon-system service/kubernetes-dashboard 80
 27. In Virtual Service/k8s-dashboard-virtual-service spec.hosts, extract the host to connect to the actual dashboard, e.g. neon-k8s.777e-42fe-5d6e-4eba.neoncluster.io
 28. Open your browser and connect to https://neon-k8s.777e-42fe-5d6e-4eba.neoncluster.io, using root as the username, the password you have found in step 26, and the url you found in step 27.
 29. Harbor is installed and the url is similar, e.g. https://neon-registry.777e-42fe-5d6e-4eba.neoncluster.io. The credentials are the same as neon-k8s
+30. See https://github.com/nforgeio/neonKUBE/issues/1707 about fixing an error with minio
+
 
 ### Rebooting
 1. There is some work to do after a reboot that worked for me. In one of the operators I got the following error: `unable to retrieve the complete list of server APIs` To fix I did the following:
