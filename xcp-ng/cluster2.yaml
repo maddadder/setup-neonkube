@@ -1,4 +1,4 @@
-name: xcp-ng-beaky
+name: xcp-ng-aurus
 datacenter: xcp-ng-dc
 timeSources:
 - pool.ntp.org
@@ -22,14 +22,8 @@ hosting:
     hostUsername: root
     hostPassword: YOUR_XCP-NG_PASSWORD
     hosts:
-    - name: xcp-ng-01
-      address: 192.168.1.171
-    - name: xcp-ng-02
-      address: 192.168.1.172
-    - name: xcp-ng-03
-      address: 192.168.1.173
-    - name: xcp-ng-04
-      address: 192.168.1.174
+    - name: xcp-ng-aurus
+      address: 192.168.1.200
   xenServer:
     snapshot: true
 storage:
@@ -47,46 +41,46 @@ network:
 nodes:
   master-0:
     role: control-plane
-    address: 192.168.1.181
+    address: 192.168.1.211
     openEbsStorage: false
     vm:
-      host: xcp-ng-01
+      host: xcp-ng-aurus
       cores: 6
-      memory: 28GiB
-      osDisk: 360GiB
+      memory: 14GiB
+      osDisk: 180GiB
   worker-0:
     role: worker
-    address: 192.168.1.182
+    address: 192.168.1.212
     openEbsStorage: true
     labels:
       minio: true
     vm:
-      host: xcp-ng-02
+      host: xcp-ng-aurus
       cores: 6
-      memory: 28GiB
-      osDisk: 180GiB
-      openEbsDisk: 180GiB
+      memory: 14GiB
+      osDisk: 105GiB
+      openEbsDisk: 105GiB
   worker-1:
     role: worker
-    address: 192.168.1.183
+    address: 192.168.1.213
     openEbsStorage: true
     labels:
       minio: true
     vm:
-      host: xcp-ng-03
+      host: xcp-ng-aurus
       cores: 6
-      memory: 28GiB
-      osDisk: 180GiB
-      openEbsDisk: 180GiB
+      memory: 14GiB
+      osDisk: 105GiB
+      openEbsDisk: 105GiB
   worker-2:
     role: worker
-    address: 192.168.1.184
+    address: 192.168.1.214
     openEbsStorage: true
     labels:
       minio: true
     vm:
-      host: xcp-ng-04
+      host: xcp-ng-aurus
       cores: 6
-      memory: 28GiB
-      osDisk: 180GiB
-      openEbsDisk: 180GiB
+      memory: 14GiB
+      osDisk: 105GiB
+      openEbsDisk: 105GiB
