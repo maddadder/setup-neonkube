@@ -1,6 +1,6 @@
 1. Install Visual Studio 2022
 2. install git for windows here: https://gitforwindows.org/
-3. clone https://github.com/nforgeio/neonSDK from c:\git and then `git reset --hard a2d4112b08d6f105c7bec9e70c3392dae5c30f88` as a mechanism to version this doc
+3. `git clone https://github.com/nforgeio/neonSDK` from c:\git and then `git reset --hard d3427af3693d17bfd2292980d069184929f25923` as a mechanism to version this doc
 4. Open solution file neonSDK.sln from Visual Studio
 5. Install .net framework 3.1 and 5 (if prompted)
 6. Install VSCode for Windows
@@ -8,16 +8,19 @@
 8. Install 7zip https://www.7-zip.org/download.html 64bit version
 9. Install Putty: https://www.putty.org/
 10. Install WinSCP: https://winscp.net/eng/index.php
+10. Install xcp-ng on a target datacenter server(s): https://xcp-ng.org/docs/release-8-2.html
+10. Install xcp-ng center from: https://github.com/xcp-ng/xenadmin/releases/
 11. Run: winget install --id Microsoft.Powershell --source winget
 12. open cmd as admin and run c:\git\neonSDK\buildenv.cmd
-13. `clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 1fff9ecce1ce1bd5025d9c6b5397456a1e4d6222` as a mechanism to version this doc
-14. Open neonKUBE in Visual Studio
-15. add a new package source called 'neon' with https://nuget-dev.neoncloud.io/v3/index.json in Tools/options/Nuget Package Manager/Package Sources
+13. `git clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 4c808617a1ca077e6615a78e6f7a5fffe9464d5e` as a mechanism to version this doc
+13. open cmd as admin and run c:\git\neonKUBE\buildenv.cmd
+14. Open neonKUBE in Visual Studio as admin.
+15. You may be asked to login to GitHub. Enter your GitHub username and GITHUB_PAT as the password and check the save password button
 16. run as admin: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 17. Set Tools/neon-cli as the default project in Visual Studio
 18. Right click on neon-cli/Properties and go to Debug tab
 18. Click open debug launch profile
-20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml`
+20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`
 ```
 Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
 ```
@@ -30,7 +33,8 @@ Make sure to allocate at least ~40Gb of space below the amount of available spac
 
 If you have to restart 'cluster prepare' then backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Keeping the .\.neonkube\node-images folder will allow you to start from scratch without having to re-download the large file neonkube-0.8.3-alpha.xenserver.amd64.xva every time. Also backup/delete C:\Users\alice\.kube folder, and delete any virtual machines that were created
 ```
-22. Change the debug launch profile to: `cluster setup root@xcp-ng-beaky` where `xcp-ng-beaky` is the name of your cluster defined by line one of cluster.yaml
+21. Build neonKUBE\Lib\Neon.Kube.Setup to embed/build the cluster-manifest.json file 
+22. Change the debug launch profile to: `cluster setup root@xcp-ng-beaky` OR `cluster setup root@xcp-ng-aurus` where `xcp-ng-beaky` is the name of your cluster defined by line one of cluster.yaml
 23. Press play in the debugger
 24. Once setup is complete you need to find the Url and password. The quick way is to check the log in `C:\Users\alice\.neonkube\log\master-0.log`. You can search for root and look for the password. For the Url you can search for `.neoncluster.io` and then navigate to neon-k8s.GUID.neoncluster.io in your browser. Another way is to log in to the dashboard by port fowarding. If you don't have the log file, here are the steps to create a sample user https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md and port forward:
 ```
