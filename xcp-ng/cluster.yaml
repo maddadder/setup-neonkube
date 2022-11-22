@@ -1,4 +1,4 @@
-name: xcp-ng-beaky
+name: beaky
 datacenter: xcp-ng-dc
 timeSources:
 - pool.ntp.org

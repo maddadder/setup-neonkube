@@ -1,4 +1,4 @@
-name: xcp-ng-aurus
+name: aurus
 datacenter: xcp-ng-dc
 timeSources:
 - pool.ntp.org
@@ -22,7 +22,7 @@ hosting:
     hostUsername: root
     hostPassword: YOUR_XCP-NG_PASSWORD
     hosts:
-    - name: xcp-ng-aurus
+    - name: aurus
       address: 192.168.1.200
   xenServer:
     snapshot: true
@@ -44,7 +44,7 @@ nodes:
     address: 192.168.1.211
     openEbsStorage: false
     vm:
-      host: xcp-ng-aurus
+      host: aurus
       cores: 6
       memory: 14GiB
       osDisk: 180GiB
@@ -55,7 +55,7 @@ nodes:
     labels:
       minio: true
     vm:
-      host: xcp-ng-aurus
+      host: aurus
       cores: 6
       memory: 14GiB
       osDisk: 105GiB
@@ -67,7 +67,7 @@ nodes:
     labels:
       minio: true
     vm:
-      host: xcp-ng-aurus
+      host: aurus
       cores: 6
       memory: 14GiB
       osDisk: 105GiB
@@ -79,7 +79,7 @@ nodes:
     labels:
       minio: true
     vm:
-      host: xcp-ng-aurus
+      host: aurus
       cores: 6
       memory: 14GiB
       osDisk: 105GiB

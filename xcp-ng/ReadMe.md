@@ -20,7 +20,7 @@
 17. Set Tools/neon-cli as the default project in Visual Studio
 18. Right click on neon-cli/Properties and go to Debug tab
 18. Click open debug launch profile
-20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`
+20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`. If you already have the image downloaded locally you can run `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva`
 ```
 Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
 ```
@@ -34,7 +34,7 @@ Make sure to allocate at least ~40Gb of space below the amount of available spac
 If you have to restart 'cluster prepare' then backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Keeping the .\.neonkube\node-images folder will allow you to start from scratch without having to re-download the large file neonkube-0.8.3-alpha.xenserver.amd64.xva every time. Also backup/delete C:\Users\alice\.kube folder, and delete any virtual machines that were created
 ```
 21. Build neonKUBE\Lib\Neon.Kube.Setup to embed/build the cluster-manifest.json file 
-22. Change the debug launch profile to: `cluster setup root@xcp-ng-beaky` OR `cluster setup root@xcp-ng-aurus` where `xcp-ng-beaky` is the name of your cluster defined by line one of cluster.yaml
+22. Change the debug launch profile to: `cluster setup root@beaky` OR `cluster setup root@aurus` where `beaky` is the name of your cluster defined by line one of cluster.yaml. Another option is `cluster setup root@beaky --upload-charts` OR `cluster setup root@aurus --upload-charts` if you want to upload the charts from source instead of it pulling from the image.
 23. Press play in the debugger
 24. Once setup is complete you need to find the Url and password. The quick way is to check the log in `C:\Users\alice\.neonkube\log\master-0.log`. You can search for root and look for the password. For the Url you can search for `.neoncluster.io` and then navigate to neon-k8s.GUID.neoncluster.io in your browser. Another way is to log in to the dashboard by port fowarding. If you don't have the log file, here are the steps to create a sample user https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md and port forward:
 ```
