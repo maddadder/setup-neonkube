@@ -24,9 +24,8 @@
 20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`. 
 20. If you already have the image downloaded locally, and building a new xenserver, you can import the template onto the server via xcp-ng => File => Import => Browse for the template, e.g. neonkube-0.8.4-alpha.xenserver.amd64.xva.gz. The image must be imported before setup will be able to create the virtual machine.
 20. If you already have the image downloaded and have the image imported onto the xenserver can specify the template via `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva`
-```
-Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
-```
+20. You can test ahead of time for xenservers to see if the download is going to work by navigating to: https://neon-public.s3.us-west-2.amazonaws.com/vm-images/xenserver/node/neonkube-0.8.4-alpha.xenserver.amd64.xva.gz.manifest. Note that the actual image is a multipart download so there is no way to download the file without special tooling.
+20. Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
 21. Press play in the debugger 
 ```
 The cli will, among other things, download a file from https://neon-public.s3.us-west-2.amazonaws.com/vm-images/xenserver/node/neonkube-0.8.3-alpha.xenserver.amd64.xva.gz.manifest, but it downloads the whole file in parts using special code: https://github.com/nforgeio/neonSDK/blob/master/Lib/Neon.Deployment/Helper/DeploymentHelper.cs#L206. 
