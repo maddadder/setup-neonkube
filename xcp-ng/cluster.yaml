@@ -48,12 +48,13 @@ nodes:
   master-0:
     role: control-plane
     address: 192.168.1.181
-    openEbsStorage: false
+    openEbsStorage: true
     vm:
       host: xcp-ng-01
       cores: 6
       memory: 28GiB
-      osDisk: 360GiB
+      osDisk: 180GiB
+      openEbsDisk: 180GiB
   worker-0:
     role: worker
     address: 192.168.1.182

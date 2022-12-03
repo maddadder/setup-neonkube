@@ -12,15 +12,18 @@
 10. Install xcp-ng center from: https://github.com/xcp-ng/xenadmin/releases/
 11. Run: winget install --id Microsoft.Powershell --source winget
 12. open cmd as admin and run c:\git\neonSDK\buildenv.cmd
-13. `git clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 4c808617a1ca077e6615a78e6f7a5fffe9464d5e` as a mechanism to version this doc
+13. `git clone https://github.com/nforgeio/neonKUBE.git` from c:\git and then `git reset --hard 252acaa6fa68c0b640fb3a1109cf72699985ba72` as a mechanism to version this doc
 13. open cmd as admin and run c:\git\neonKUBE\buildenv.cmd
 14. Open neonKUBE in Visual Studio as admin.
 15. You may be asked to login to GitHub. Enter your GitHub username and GITHUB_PAT as the password and check the save password button
 16. run as admin: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+17. (optional) To add redundancy to openebs you can configure Mirror instead of Stripe by changing the code to `DataRaidGroupType = DataRaidGroupTypes.Mirror` instead of `DataRaidGroupType = DataRaidGroupTypes.Stripe` in `C:\git\neonKUBE\Lib\Neon.Kube.Setup\KubeSetup.Operations.cs` line ~2646. Make sure you have an even number of openEbsDisk disks configured
 17. Set Tools/neon-cli as the default project in Visual Studio
 18. Right click on neon-cli/Properties and go to Debug tab
-18. Click open debug launch profile
-20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`. If you already have the image downloaded locally you can run `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva`
+19. Click open debug launch profile
+20. Paste in: `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml`. 
+20. If you already have the image downloaded locally, and building a new xenserver, you can import the template onto the server via xcp-ng => File => Import => Browse for the template, e.g. neonkube-0.8.4-alpha.xenserver.amd64.xva.gz. The image must be imported before setup will be able to create the virtual machine.
+20. If you already have the image downloaded and have the image imported onto the xenserver can specify the template via `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva`
 ```
 Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
 ```
