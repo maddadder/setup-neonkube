@@ -17,7 +17,6 @@
 14. Open neonKUBE in Visual Studio as admin.
 15. You may be asked to login to GitHub. Enter your GitHub username and GITHUB_PAT as the password and check the save password button
 16. run as admin: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
-17. (optional) To add redundancy to openebs you can configure Mirror instead of Stripe by changing the code to `DataRaidGroupType = DataRaidGroupTypes.Mirror` instead of `DataRaidGroupType = DataRaidGroupTypes.Stripe` in `C:\git\neonKUBE\Lib\Neon.Kube.Setup\KubeSetup.Operations.cs` line ~2646. Make sure you have an even number of openEbsDisk disks configured
 17. Set Tools/neon-cli as the default project in Visual Studio
 18. Right click on neon-cli/Properties and go to Debug tab
 19. Click open debug launch profile
