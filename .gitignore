@@ -6,3 +6,4 @@ temporal-adventure-bot/deploy.cmd
 nextjs-app/deploy.cmd
 ddns-route53/deploy.cmd
 xcp-ng/cluster-aurus.yaml
+ddns-route53/deploy.sh
