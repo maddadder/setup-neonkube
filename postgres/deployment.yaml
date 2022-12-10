@@ -62,3 +62,6 @@ spec:
             - name: nfs
               persistentVolumeClaim:
                 claimName: my-nfs-claim
+          securityContext:
+            fsGroup: 1000
+            runAsUser: 1000

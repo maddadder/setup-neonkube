@@ -1,6 +1,6 @@
 #!/bin/sh
 logfile="/mnt/nfs/pgsql.log"
-backup_dir="/mnt/nfs/blogifier/backups"
+backup_dir="/mnt/nfs"
 touch $logfile
 databases=`psql -h $PGHOST -U postgres -q -c "\l" | sed -n 4,/\eof/p | grep -v rows\) | grep -v template0 | grep -v template1 | awk {'print $1'}`
 echo "writing to log file"
