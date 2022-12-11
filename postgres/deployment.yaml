@@ -32,9 +32,9 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: batch-every-twelve-hours
+  name: backup-postgres-db
 spec:
-  schedule: "0 */12 * * *"
+  schedule: "0 12 * * *"
   jobTemplate:
     spec:
       template:
@@ -53,8 +53,6 @@ spec:
               value: "neon-system-db.neon-system.svc.cluster.local"
             - name: "PGPASSWORD"
               value: "YOU_POSTGRESS_PASSWORD_GOES_HERE"
-            - name: "CRONSCHEDULE"
-              value: "00 3 * * *"
             volumeMounts:
             - name: nfs
               mountPath: /mnt/nfs
