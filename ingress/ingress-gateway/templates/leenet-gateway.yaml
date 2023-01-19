@@ -26,16 +26,6 @@ spec:
       mode: SIMPLE
       credentialName: leenet-link-route53-dns-tls
   - hosts:
-    - "leenet.lol"
-    - "*.leenet.lol"
-    port:
-      number: 443
-      name: leenet-lol-https
-      protocol: HTTPS
-    tls:
-      mode: SIMPLE
-      credentialName: leenet-lol-route53-dns-tls
-  - hosts:
     - "charlierlee.com"
     - "*.charlierlee.com"
     port:
