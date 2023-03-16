@@ -25,6 +25,7 @@
 20. If you already have the image downloaded and have the image imported onto the xenserver can specify the template via `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-aurus.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva` OR `cluster prepare C:\git\setup-neonkube\xcp-ng\cluster-beaky.yaml --node-image-path=C:\Users\alice\.neonkube\node-images\neonkube-0.8.4-alpha.xenserver.amd64.xva.gz --debug --base-image-name=neonkube-0.8.4-alpha.xenserver.amd64.xva`
 20. You can test ahead of time for xenservers to see if the download is going to work by navigating to: https://neon-public.s3.us-west-2.amazonaws.com/vm-images/xenserver/node/neonkube-0.8.4-alpha.xenserver.amd64.xva.gz.manifest. Note that the actual image is a multipart download so there is no way to download the file without special tooling.
 20. Before you run cluster prepare, make sure to backup/delete everything in the C:\Users\alice\.neonkube folder except .\.neonkube\node-images, .\.neonkube\passwords, .\.neonkube\tools. Also backup/delete C:\Users\alice\.kube folder
+20. I also had to (because I had an old image) change any apt-get update or safe-apt-get update to --allow-insecure-repositories to mitigate the following error: The following signatures were invalid: EXPKEYSIG 4D64390375060AA4 devel:kubic OBS Project. This is generally a bad idea, but given I won't be installing OBS on this server I think it's ok.
 21. Press play in the debugger 
 ```
 The cli will, among other things, download a file from https://neon-public.s3.us-west-2.amazonaws.com/vm-images/xenserver/node/neonkube-0.8.3-alpha.xenserver.amd64.xva.gz.manifest, but it downloads the whole file in parts using special code: https://github.com/nforgeio/neonSDK/blob/master/Lib/Neon.Deployment/Helper/DeploymentHelper.cs#L206. 
@@ -36,7 +37,7 @@ If you have to restart 'cluster prepare' then backup/delete everything in the C:
 ```
 21. Build neonKUBE\Lib\Neon.Kube.Setup to embed/build the cluster-manifest.json file 
 22. Change the debug launch profile to: `cluster setup root@beaky` OR `cluster setup root@aurus` where `beaky` is the name of your cluster defined by line one of cluster.yaml. Another option is `cluster setup root@beaky --upload-charts` OR `cluster setup root@aurus --upload-charts` if you want to upload the charts from source instead of it pulling from the image.
-23. Press play in the debugger
+23. Press play in the debugger. One time I had to delete the storage class for minio internal and then recreated it as a cstor storage class. Not sure why this was necessary (using the step below to get the pw)
 24. Once setup is complete you need to find the Url and password. The quick way is to check the log in `C:\Users\alice\.neonkube\log\master-0.log`. You can search for root and look for the password. For the Url you can search for `.neoncluster.io` and then navigate to neon-k8s.GUID.neoncluster.io in your browser. Another way is to log in to the dashboard by port fowarding. If you don't have the log file, here are the steps to create a sample user https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md and port forward:
 ```
 cd C:\Users\alice\.neonkube\tools
