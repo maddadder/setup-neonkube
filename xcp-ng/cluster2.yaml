@@ -42,12 +42,13 @@ nodes:
   master-0:
     role: control-plane
     address: 192.168.1.211
-    openEbsStorage: false
+    openEbsStorage: true
     vm:
       host: aurus
       cores: 6
       memory: 14GiB
-      osDisk: 180GiB
+      osDisk: 115GiB
+      openEbsDisk: 80GiB
   worker-0:
     role: worker
     address: 192.168.1.212
@@ -58,8 +59,8 @@ nodes:
       host: aurus
       cores: 6
       memory: 14GiB
-      osDisk: 105GiB
-      openEbsDisk: 105GiB
+      osDisk: 115GiB
+      openEbsDisk: 80GiB
   worker-1:
     role: worker
     address: 192.168.1.213
@@ -70,8 +71,8 @@ nodes:
       host: aurus
       cores: 6
       memory: 14GiB
-      osDisk: 105GiB
-      openEbsDisk: 105GiB
+      osDisk: 115GiB
+      openEbsDisk: 80GiB
   worker-2:
     role: worker
     address: 192.168.1.214
@@ -82,5 +83,5 @@ nodes:
       host: aurus
       cores: 6
       memory: 14GiB
-      osDisk: 105GiB
-      openEbsDisk: 105GiB
+      osDisk: 115GiB
+      openEbsDisk: 80GiB
