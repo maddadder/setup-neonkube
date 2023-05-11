@@ -67,3 +67,17 @@ spec:
   dnsNames:
     - "zambonigirl.com"
     - "*.zambonigirl.com"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: whereatreeoncewas-com-route53-dns
+  namespace: neon-ingress
+spec:
+  secretName: whereatreeoncewas-com-route53-dns-tls
+  issuerRef:
+    name: letsencrypt-production-dns
+    kind: ClusterIssuer
+  dnsNames:
+    - "whereatreeoncewas.com"
+    - "*.whereatreeoncewas.com"

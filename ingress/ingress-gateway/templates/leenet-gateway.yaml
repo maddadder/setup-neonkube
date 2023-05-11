@@ -65,3 +65,13 @@ spec:
     tls:
       mode: SIMPLE
       credentialName: paintedravendesign-com-route53-dns-tls
+  - hosts:
+    - "whereatreeoncewas.com"
+    - "*.whereatreeoncewas.com"
+    port:
+      number: 443
+      name: whereatreeoncewas-com-https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: whereatreeoncewas-com-route53-dns-tls
