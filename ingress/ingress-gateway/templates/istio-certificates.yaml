@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: leenet-link-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: leenet-link-route53-dns-tls
   issuerRef:
@@ -16,7 +16,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: charlierlee-com-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: charlierlee-com-route53-dns-tls
   issuerRef:
@@ -30,7 +30,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: plhhoa-link-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: plhhoa-link-route53-dns-tls
   issuerRef:
@@ -44,7 +44,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: paintedravendesign-com-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: paintedravendesign-com-route53-dns-tls
   issuerRef:
@@ -58,7 +58,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: zambonigirl-com-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: zambonigirl-com-route53-dns-tls
   issuerRef:
@@ -72,7 +72,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: whereatreeoncewas-com-route53-dns
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   secretName: whereatreeoncewas-com-route53-dns-tls
   issuerRef:

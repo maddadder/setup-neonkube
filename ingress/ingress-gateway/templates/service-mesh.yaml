@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
   name: www.amazon.com
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   host: "www.amazon.com"
   trafficPolicy:
@@ -13,7 +13,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
   name: www.amazon.com
-  namespace: neon-ingress
+  namespace: istio-system
 spec:
   hosts:
     - www.amazon.com
